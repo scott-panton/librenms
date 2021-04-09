@@ -154,7 +154,7 @@ class PrinterSupplies implements Module
             }
 
             // Ricoh - TONERCurLevel
-            if (empty($raw_toner)) {
+            if (empty($raw_toner) || $raw_toner == '-3') {
                 $supply_oid = ".1.3.6.1.4.1.367.3.2.1.2.24.1.1.5.$last_index";
                 $raw_toner = snmp_get($device, $supply_oid, '-Oqv');
             }
